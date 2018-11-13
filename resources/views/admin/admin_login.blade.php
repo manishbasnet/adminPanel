@@ -41,6 +41,17 @@
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
         <div class="auth-box bg-dark border-top border-secondary">
             <div id="loginform">
+                @if(Session::has('flash_message_error'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{!! session('flash_message_error') !!}</strong>
+                    </div>
+                @elseif(Session::has('flash_message_success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        <strong>{!! session('flash_message_success') !!}</strong>
+                    </div>
+                @endif
                 <div class="text-center p-t-20 p-b-20">
                     <span class="db"><img src="{{ asset('assets/images/logo.png') }}" alt="logo" /></span>
                 </div>
